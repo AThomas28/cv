@@ -3,10 +3,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
     
-    // Check saved preference
+    // Check saved preference or system preference
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        body.classList.add('light-mode');
+    
+    if (savedTheme) {
+        // User has a saved preference
+        if (savedTheme === 'light') {
+            body.classList.add('light-mode');
+        }
+    } else {
+        // No saved preference, use system preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (!prefersDark) {
+            body.classList.add('light-mode');
+        }
     }
     
     // Toggle dark mode
@@ -188,52 +198,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const formStatus = document.getElementById('formStatus');
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerHTML;
-        
-        const name = document.getElementById('contact-name').value.trim();
-        const email = document.getElementById('contact-email').value.trim();
-        const message = document.getElementById('contact-message').value.trim();
-        
-        if (!name || !email || !message) {
-            formStatus.className = 'form-status error';
-            formStatus.textContent = 'Tous les champs sont requis.';
-            return;
-        }
-        
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            formStatus.className = 'form-status error';
-            formStatus.textContent = 'Veuillez entrer une adresse email valide.';
-            return;
-        }
-        
-        submitBtn.innerHTML = '⏳ Envoi en cours...';
-        submitBtn.disabled = true;
-        
-        const subject = encodeURIComponent(`Contact depuis CV - ${name}`);
-        const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-        const mailtoLink = `mailto:contact@taugustin.fr?subject=${subject}&body=${body}`;
-        
-        window.location.href = mailtoLink;
-        
-        setTimeout(() => {
-            formStatus.className = 'form-status success';
-            formStatus.textContent = '✅ Votre client email s\'est ouvert. Merci de votre message !';
-            contactForm.reset();
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
-            
-            setTimeout(() => {
-                formStatus.className = 'form-status';
-                formStatus.textContent = '';
-            }, 5000);
-        }, 1000);
-    });
-}

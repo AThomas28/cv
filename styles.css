@@ -362,6 +362,86 @@ nav {
     font-weight: 600;
 }
 
+.hero-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.hero-links .cta-primary,
+.hero-links .cta-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--primary-blue);
+    padding: 0.9rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.hero-links .cta-primary {
+    background: var(--primary-blue);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+}
+
+.hero-links .cta-primary:hover,
+.hero-links .cta-primary:focus {
+    background: #0052cc;
+    border-color: #0052cc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+}
+
+.hero-links .cta-secondary:hover,
+.hero-links .cta-secondary:focus {
+    background: rgba(0, 102, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.hero-links .cta-secondary svg {
+    width: 20px;
+    height: 20px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.9rem 1.8rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(0, 102, 255, 0.3);
+    background: transparent;
+}
+
+.social-link:hover,
+.social-link:focus {
+    background: rgba(0, 102, 255, 0.1);
+    border-color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+}
+
 .company-badges {
     display: flex;
     flex-wrap: wrap;
@@ -857,6 +937,128 @@ section.visible {
     background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, transparent 100%);
     border-radius: 20px;
     padding: 6rem 2rem !important;
+}
+
+.contact-info-centered {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-info-centered h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.contact-info-centered p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
+    margin: 0 auto 3rem;
+    text-align: left;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.05rem;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.contact-info-item.email .contact-icon {
+    background: rgba(59, 130, 246, 0.15);
+}
+
+.contact-info-item.location .contact-icon {
+    background: rgba(236, 72, 153, 0.15);
+}
+
+.contact-info-item.linkedin .contact-icon {
+    background: rgba(148, 163, 184, 0.15);
+}
+
+.contact-info-item a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-info-item a:hover,
+.contact-info-item a:focus {
+    color: var(--primary-blue);
+}
+
+.contact-info-item span:not(.contact-icon) {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.contact-location {
+    display: none;
+}
+
+.contact-cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-cta-buttons .cta-primary,
+.contact-cta-buttons .cta-secondary {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 1.2rem 1.5rem;
+    font-size: 1rem;
+    position: relative;
+    text-align: left;
+}
+
+.contact-cta-buttons .cta-primary {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--text-primary);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: none;
+}
+
+.contact-cta-buttons .cta-primary:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: none;
+}
+
+.contact-cta-buttons .cta-secondary {
+    background: rgba(236, 72, 153, 0.1);
+    color: var(--text-primary);
+    border: 1px solid rgba(236, 72, 153, 0.3);
+}
+
+.contact-cta-buttons .cta-secondary:hover {
+    background: rgba(236, 72, 153, 0.15);
+    border-color: rgba(236, 72, 153, 0.5);
 }
 
 .contact-container {
