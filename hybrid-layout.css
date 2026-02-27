@@ -1,0 +1,531 @@
+/* ================================
+   LAYOUT HYBRIDE RESPONSIVE
+   Mobile First Approach
+   ================================ */
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    background: transparent;
+    border: 2px solid var(--primary-blue);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 1rem;
+}
+
+.dark-mode-toggle:hover {
+    background: var(--primary-blue);
+    transform: scale(1.1);
+}
+
+.dark-mode-toggle .light-icon {
+    display: none;
+}
+
+body.light-mode .dark-mode-toggle .dark-icon {
+    display: none;
+}
+
+body.light-mode .dark-mode-toggle .light-icon {
+    display: block;
+}
+
+/* Hero Section Modernisée */
+.hero {
+    min-height: 60vh;
+    padding: 8rem 0 4rem;
+}
+
+.hero-text {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-text h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-blue), #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.hero-tagline {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 102, 255, 0.3);
+    border-radius: 8px;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Profil Section (inside main-content) */
+.profile-section {
+    padding: 2rem;
+    background: var(--card-bg);
+    margin-bottom: 2rem;
+    border-radius: 12px;
+}
+
+.profile-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.profile-text strong {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+/* Layout Hybride - Mobile First */
+.hybrid-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Mobile: 1 colonne */
+.main-content {
+    width: 100%;
+}
+
+.sidebar {
+    width: 100%;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+/* Tablet: début de la transition */
+@media (min-width: 768px) {
+    .hybrid-layout {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .main-content {
+        width: 65%;
+    }
+    
+    .sidebar {
+        width: 32%;
+        position: sticky;
+        top: 100px;
+    }
+}
+
+/* Desktop: layout optimal */
+@media (min-width: 1024px) {
+    .main-content {
+        width: 68%;
+    }
+    
+    .sidebar {
+        width: 30%;
+    }
+}
+
+/* Sidebar Sections */
+.sidebar-section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 102, 255, 0.1);
+}
+
+.sidebar-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.sidebar-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-info-sidebar .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.contact-info-sidebar .icon {
+    font-size: 1.2rem;
+}
+
+.contact-info-sidebar a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info-sidebar a:hover {
+    color: var(--primary-blue);
+}
+
+/* Skill Categories in Sidebar */
+.skill-category {
+    margin-bottom: 1.5rem;
+}
+
+.skill-category h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: rgba(0, 102, 255, 0.1);
+    color: var(--primary-blue);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* Language List */
+.language-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.language-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.language-item strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.language-item span {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Education List */
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.education-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.education-item strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.education-item span {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Section Vidéo/Projets */
+.projects-section {
+    margin-bottom: 4rem;
+}
+
+.section-intro {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.video-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+}
+
+.video-thumbnail {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-thumbnail iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: 1rem 1.5rem 0.5rem;
+}
+
+.video-description {
+    color: var(--text-secondary);
+    padding: 0 1.5rem 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Video Placeholder */
+.video-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    background: var(--card-bg);
+    border: 2px dashed rgba(0, 102, 255, 0.3);
+    border-radius: 12px;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Passion Text */
+.passion-text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Full Skills Section (après le layout hybride) */
+.full-skills-section {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 2px solid rgba(0, 102, 255, 0.1);
+}
+
+/* CSS PRINT OPTIMISÉ */
+@media print {
+    /* Masquer les éléments non nécessaires */
+    header,
+    #particleCanvas,
+    .dark-mode-toggle,
+    .pdf-btn,
+    .contact-link,
+    .social-link,
+    .hero-links,
+    .video-grid,
+    .projects-section,
+    footer,
+    .contact-form,
+    .scroll-indicator {
+        display: none !important;
+    }
+    
+    /* Réinitialiser les couleurs pour l'impression */
+    * {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    /* Hero simplifié pour print */
+    .hero {
+        min-height: auto;
+        padding: 2rem 0;
+        page-break-after: avoid;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem;
+        background: none !important;
+        -webkit-text-fill-color: black !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .hero-tagline {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Layout print: retour à 1 colonne */
+    .hybrid-layout {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .main-content,
+    .sidebar {
+        width: 100%;
+        padding: 0;
+        background: none !important;
+    }
+    
+    /* Sidebar compacte */
+    .sidebar-section {
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #ccc !important;
+        page-break-inside: avoid;
+    }
+    
+    .sidebar-title {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Expériences */
+    .experience-card {
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border: 1px solid #ccc !important;
+        background: none !important;
+    }
+    
+    .card-glow {
+        display: none;
+    }
+    
+    .tech-pill {
+        border: 1px solid #000 !important;
+        background: none !important;
+        color: black !important;
+        padding: 0.25rem 0.5rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.25rem;
+        display: inline-block;
+    }
+    
+    /* Sections */
+    .section-title {
+        font-size: 1.5rem;
+        margin: 1rem 0 0.75rem;
+        page-break-after: avoid;
+    }
+    
+    .profile-section {
+        padding: 1rem 0;
+        margin-bottom: 1rem;
+    }
+    
+    .profile-text {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    /* Éviter les coupures de page */
+    h1, h2, h3, h4 {
+        page-break-after: avoid;
+    }
+    
+    /* Maximum 2 pages A4 */
+    @page {
+        size: A4;
+        margin: 1.5cm;
+    }
+}
